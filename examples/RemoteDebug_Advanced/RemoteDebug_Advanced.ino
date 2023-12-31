@@ -111,7 +111,6 @@ WebServer HTTPServer(80);
 #ifndef DEBUG_DISABLED  // Only if debug is not disabled (for production/release)
 
 // Instance of RemoteDebug
-
 RemoteDebug Debug;
 
 #endif
@@ -127,7 +126,6 @@ RemoteDebug Debug;
 /////// Variables
 
 // Time
-
 uint32_t mTimeToSec = 0;
 uint32_t mTimeSeconds = 0;
 
@@ -146,7 +144,6 @@ void setup() {
 #endif
 
     // Connect WiFi
-
     connectWiFi();
 
     // Host name of WiFi
@@ -157,7 +154,6 @@ void setup() {
 
 #ifdef USE_ARDUINO_OTA
     // Update over air (OTA)
-
     initializeOTA();
 #endif
 
@@ -197,7 +193,6 @@ void setup() {
 #ifndef DEBUG_DISABLED  // Only for development
 
     // Initialize RemoteDebug
-
     Debug.begin(HOST_NAME);  // Initialize the WiFi server
 
     // Debug.setPassword("r3m0t0."); // Password for WiFi client connection (telnet or webapp)  ?
@@ -211,7 +206,6 @@ void setup() {
     // Debug.setSerialEnabled(true); // if you wants serial echo - only recommended if ESP is plugged in USB
 
     // Project commands
-
     String helpCmd = "bench1 - Benchmark 1\n";
     helpCmd.concat("bench2 - Benchmark 2");
 
@@ -219,7 +213,6 @@ void setup() {
     Debug.setCallBackProjectCmds(&processCmdRemoteDebug);
 
     // End of setup - show IP
-
     Serial.println("* Arduino RemoteDebug Library");
     Serial.println("*");
     Serial.print("* WiFI connected. IP address: ");
@@ -243,7 +236,6 @@ void loop() {
 #endif
 
     // Each second
-
     if (millis() >= mTimeToSec) {
         // Time
 
@@ -258,13 +250,11 @@ void loop() {
 #endif
 
         // Debug the time (verbose level)
-
         debugV("* Time: %u seconds (VERBOSE)", mTimeSeconds);
 
         if (mTimeSeconds % 5 == 0) {  // Each 5 seconds
 
             // Debug levels
-
             debugV("* This is a message of debug level VERBOSE");
             debugD("* This is a message of debug level DEBUG");
             debugI("* This is a message of debug level INFO");
@@ -293,29 +283,24 @@ void loop() {
 
 #ifdef USE_ARDUINO_OTA
     // Update over air (OTA)
-
     ArduinoOTA.handle();
 #endif
 
 #ifdef WEB_SERVER_ENABLED
     // Web server
-
     HTTPServer.handleClient();
 #endif
 
 #ifndef DEBUG_DISABLED
     // RemoteDebug handle (for WiFi connections)
-
     Debug.handle();
 #endif
 
     // Give a time for ESP
-
     yield();
 
 #ifndef DEBUG_DISABLED
     // Show a debug - warning if time of these loop is over 50 (info) or 100 ms (warning)
-
     uint32_t time = (millis() - timeBeginLoop);
 
     if (time > 100) {
@@ -327,7 +312,6 @@ void loop() {
 }
 
 // Function example to show a new auto function name of debug* macros
-
 void foo() {
     uint8_t var = 1;
 
@@ -338,7 +322,6 @@ void foo() {
 #ifndef DEBUG_DISABLED
 
 // Process commands from RemoteDebug
-
 void processCmdRemoteDebug() {
     String lastCmd = Debug.getLastCommand();
 
@@ -439,7 +422,6 @@ void connectWiFi() {
     }
 
     // End
-
     Serial.println("");
     Serial.print("connectWiFi: connect a ");
     Serial.println(WiFi.SSID());

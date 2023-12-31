@@ -657,11 +657,9 @@ void connectWiFi() {
     if (WiFi.status() != WL_CONNECTED) {
 #ifndef WIFI_SSID
         // SmartConfig
-
         WiFi.beginSmartConfig();
 
         // Wait for SmartConfig packet from mobile
-
         Serial.println("connectWiFi: Waiting for SmartConfig.");
 
         while (!WiFi.smartConfigDone()) {
@@ -673,7 +671,6 @@ void connectWiFi() {
         Serial.println("connectWiFi: SmartConfig received.");
 
         // Wait for WiFi to connect to AP
-
         Serial.println("connectWiFi: Waiting for WiFi");
 
         while (WiFi.status() != WL_CONNECTED) {
@@ -698,7 +695,6 @@ void connectWiFi() {
 #ifdef USE_ARDUINO_OTA
 
 // Initialize o Arduino OTA
-
 void initializeOTA() {
     // TODO: option to authentication (password)
 
@@ -730,7 +726,6 @@ void initializeOTA() {
 #elif defined ESP32
 
     // ArduinoOTA
-
     ArduinoOTA.onStart([]() {
                   String type;
                   if (ArduinoOTA.getCommand() == U_FLASH)
@@ -762,7 +757,6 @@ void initializeOTA() {
 #endif
 
     // Begin
-
     ArduinoOTA.begin();
 }
 

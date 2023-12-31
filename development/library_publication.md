@@ -27,17 +27,18 @@ Right now, the library version number resides in two places:
 
 - in the `library.json` file
 - in the [RemoteDebug.cpp](../src/RemoteDebug.cpp) file]
+- in the [library.properties](../library.properties) file
 
 Update the version number in both places.
 
-### Create a GitHUB release
+### Create a GitHub release
 
 Tag the current commit with the version number and create a GitHub release.
 
 If you are using the [GitHub CLI](https://cli.github.com/), you can do it like this:
 
 ```bash
-VERSION=3.1.0
+VERSION=4.0.2
 
 VERSION_NO=v${VERSION}
 read -r -d '' RELEASE_NOTES << EOM
