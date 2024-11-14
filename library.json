@@ -1,7 +1,7 @@
 {
     "name": "RemoteDebug",
     "keywords": "debug, remote, telnet, WiFi, websockets, dubugging, monitor",
-    "description": "A library for ESP2866 and ESP32 for debuging projects over WiFi.\n\nRemoteDebug sets up a TCP/IP server, that you connect to using telnet or websockets (using a dedicated web app).\nFork of unmaintained Joao Lopes'es RemoteDebug library with few major issues resolved.",
+    "description": "A library for ESP2866 and ESP32 for debuging projects over WiFi.\n\nRemoteDebug sets up a TCP/IP server, that you connect to using telnet or websockets (using a dedicated web app).Fork of unmaintained Joao Lopes'es RemoteDebug library with few major issues resolved.",
     "repository": {
         "type": "git",
         "url": "https://github.com/karol-brejna-i/RemoteDebug.git"
@@ -41,7 +41,7 @@
             ]
         }
     ],
-    "version": "4.0.1",
+    "version": "4.0.3",
     "dependencies": {
         "links2004/WebSockets": "2.3.4"
     }
